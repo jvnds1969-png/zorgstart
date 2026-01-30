@@ -141,6 +141,7 @@ searchForm.addEventListener('submit', (e) => {
 document.getElementById('startQuestionnaire').addEventListener('click', () => {
   showToast('Vragenlijst wordt geladen...', 'info');
   // In real app: navigate to questionnaire page
+    window.open('https://chat.bingli.eu/#/consent', '_blank');
 });
 
 // Start chat button
