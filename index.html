@@ -1,0 +1,121 @@
+<nav class="navbar">
+  <div class="logo">
+    <span class="logo-icon">Z</span>
+    <span class="logo-text">Zorgstart</span>
+  </div>
+  <div class="nav-links">
+    <a href="#actions">Voor zorgverleners</a>
+    <a href="#prevention">Voor ziekenhuizen</a>
+    <button class="btn btn-outline">Inloggen</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-content">
+    <h1>Uw gezondheid, uw regie</h1>
+    <p>Of u nu herstelt na een ziekenhuisopname, of bewust preventief aan uw gezondheid wil werken: Zorgstart staat naast u met advies, de juiste zorg of dienstverlener en – indien nodig – een 24/7 aanspreekpunt.</p>
+  </div>
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=500" alt="Persoon wandelt bij zonsondergang op strand">
+  </div>
+</header>
+
+<section class="action-section" id="actions">
+  <h2>Wat wilt u doen?</h2>
+  <div class="action-cards">
+    
+    <div class="action-card">
+      <div class="card-icon">📋</div>
+      <h3>Ontslagbrief uploaden</h3>
+      <p>Net ontslagen uit het ziekenhuis? Met Zorgstart krijgt u snel inzicht: upload uw ontslagbrief en ontvang een begrijpelijk zorgplan, aangevuld met zorgverleners die bij u in de buurt actief zijn.</p>
+      <div class="upload-area" id="uploadArea">
+        <input type="file" id="fileInput" accept=".pdf" hidden>
+        <span class="upload-icon">⬆️</span>
+        <p class="upload-text">Sleep uw PDF hier of klik om te uploaden</p>
+      </div>
+      <div class="file-info" id="fileInfo" style="display: none;">
+        <span class="file-name" id="fileName"></span>
+        <span class="file-size" id="fileSize"></span>
+        <button class="btn-remove" id="removeFile">✕</button>
+      </div>
+    </div>
+    
+    <div class="action-card">
+      <div class="card-icon">📝</div>
+      <h3>Korte vragenlijst invullen</h3>
+      <p>Geen ontslagbrief? Beantwoord enkele vragen over uw situatie en krijg advies op maat.</p>
+      <button class="btn btn-primary" id="startQuestionnaire">Start de vragenlijst</button>
+      <small>5 minuten, anoniem mogelijk</small>
+    </div>
+    
+    <div class="action-card">
+      <div class="card-icon">🔍</div>
+      <h3>Zoek een zorg- of dienstverlener</h3>
+      <p>Vind thuisverpleging, kinesist, diëtist, poetshulp of andere hulp in uw buurt.</p>
+      <form class="search-box" id="searchForm">
+        <input type="text" id="searchQuery" placeholder="Wat zoekt u? bv. thuisverpleging, kine..." required>
+        <input type="text" id="searchLocation" placeholder="Postcode of gemeente" required>
+        <button type="submit" class="btn btn-primary">Zoeken</button>
+      </form>
+    </div>
+    
+    <div class="action-card action-card-support">
+      <div class="card-icon">💬</div>
+      <h3>Iemand waar ik altijd terecht kan</h3>
+      <p>Gezondheidsvragen? Onze zorgcoaches staan 24/7 voor u klaar. Geen wachttijden, geen doorverwijzingen.</p>
+      <div class="support-contact">
+        <a href="tel:0473235839" class="phone-link">📱 0473 23 58 39</a>
+        <span class="availability">24/7 bereikbaar</span>
+      </div>
+      <button class="btn btn-secondary" id="startChat">Chat met een coach</button>
+    </div>
+    
+  </div>
+</section>
+
+<section class="prevention-section" id="prevention">
+  <div class="prevention-content">
+    <div class="prevention-text">
+      <h2>🌱 Preventie & zelfzorg</h2>
+      <p>Niet ziek, maar wel alert? Zorgstart helpt u ook preventief. Deel uw gegevens en krijg gepersonaliseerd advies om gezond te blijven.</p>
+      <ul>
+        <li>Risicoanalyse op basis van uw profiel</li>
+        <li>Tips voor beweging, voeding en mentale gezondheid</li>
+        <li>Vroegtijdige signalering van mogelijke problemen</li>
+      </ul>
+      <button class="btn btn-primary" id="startPrevention">Begin met preventie</button>
+    </div>
+    <div class="prevention-image">
+      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400" alt="Persoon doet yoga bij zonsopgang">
+    </div>
+  </div>
+</section>
+
+<section class="trust-section" id="trust">
+  <h2>Waarom Zorgstart?</h2>
+  <div class="trust-items">
+    <div class="trust-item">
+      <h3>🔒 Veilig & privé</h3>
+      <p>Uw gegevens zijn van u. Wij delen niets zonder uw toestemming.</p>
+    </div>
+    <div class="trust-item">
+      <h3>✅ Betrouwbare info</h3>
+      <p>Gevalideerd door zorgprofessionals, aangepast aan uw situatie.</p>
+    </div>
+    <div class="trust-item">
+      <h3>🚫 Geen diagnoseplatform</h3>
+      <p>Zorgstart stelt geen diagnoses. Wij structureren en vertalen bestaande medische informatie.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Zorgstart — Uw partner in gezondheid</p>
+</footer>
+
+<!-- Toast Notification -->
+<div class="toast" id="toast">
+  <span class="toast-icon" id="toastIcon"></span>
+  <span class="toast-message" id="toastMessage"></span>
+</div>
+
