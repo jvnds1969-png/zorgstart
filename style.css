@@ -207,12 +207,13 @@ button{font:inherit;border:none;background:none;cursor:pointer}
 .hero-content h1{
   font-size:2.35rem;
   margin-bottom:1rem;
+     color: #ffffff;
   letter-spacing:-0.02em;
 }
 
 .hero-content p{
   margin:0;
-  color:#e5e7eb;
+  color:#ffffff;
   max-width:56ch;
   font-size:1.02rem;
 }
@@ -608,7 +609,7 @@ footer{
 }
 
 .nav-link:hover {
-  background: #e5e7eb;
+  background: #ffffff;
 }
 
 /* ================= Buttons ================= */
