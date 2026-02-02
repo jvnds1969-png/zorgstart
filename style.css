@@ -1,8 +1,309 @@
+/* ================= Basis & reset ================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #111827;
+  background: #f3f4f6;
+  line-height: 1.5;
+}
+
+/* Alle hoofdblokken centreren en max-breedte geven */
+body > nav,
+body > header,
+body > section,
+body > footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* ================= Navbar ================= */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: #2563eb;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.logo-textblock {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-text {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.logo-subtitle {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.95rem;
+}
+
+.nav-link {
+  padding: 0.35rem 0.5rem;
+  border-radius: 999px;
+}
+
+.nav-link:hover {
+  background: #e5e7eb;
+}
+
+/* ================= Buttons ================= */
+
+.btn {
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.btn-outline {
+  border: 1px solid #2563eb;
+  color: #2563eb;
+  background: #ffffff;
+}
+
+.btn-outline:hover {
+  background: #eff6ff;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.btn-secondary {
+  background: #111827;
+  color: #ffffff;
+}
+
+.btn-secondary:hover {
+  background: #030712;
+}
+
+/* ================= Hero ================= */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 2rem;
+  padding: 2.5rem 1.25rem 2rem;
+  align-items: center;
+}
+
+.hero-content h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  margin: 0;
+  color: #4b5563;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ================= Actie-sectie ================= */
+
+.action-section {
+  padding: 1rem 1.25rem 2.5rem;
+}
+
+.action-section h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.action-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.action-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.25rem 1.3rem;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.action-card .card-icon {
+  font-size: 1.4rem;
+}
+
+.action-card h3 {
+  margin: 0.25rem 0 0.1rem;
+  font-size: 1.1rem;
+}
+
+.action-card p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 0.95rem;
+}
+
+.action-card small {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.action-card-support {
+  border-left: 4px solid #2563eb;
+}
+
+.support-contact {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.phone-link {
+  font-weight: 600;
+}
+
+.availability {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* ================= Upload / dropzone ================= */
+
+.upload-area {
+  margin-top: 0.5rem;
+  border: 2px dashed #9ca3af;
+  border-radius: 12px;
+  padding: 1.1rem 1rem;
+  text-align: center;
+  background: #f9fafb;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.upload-area:hover {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.upload-icon {
+  font-size: 1.4rem;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.upload-text {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+/* Extra blok onder dropzone */
+.upload-extra {
+  margin-top: 0.6rem;
+}
+
+/* File-info */
+.file-info {
+  margin-top: 0.6rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  background: #f3f4f6;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.file-name {
+  font-weight: 500;
+}
+
+.file-size {
+  color: #6b7280;
+}
+
+.btn-remove {
+  background: transparent;
+  color: #6b7280;
+  font-size: 0.9rem;
+  padding: 0;
+}
+
 /* ================= Tooltip ================= */
 
 .tooltip {
   position: relative;
   cursor: help;
+  display: inline-block;
 }
 
 /* De tekstballon */
@@ -40,8 +341,163 @@
   transition: opacity 0.2s ease;
 }
 
-/* Hover‑state */
+/* Hover-state */
 .tooltip:hover::after,
 .tooltip:hover::before {
   opacity: 1;
+}
+
+/* ================= Preventie-sectie ================= */
+
+.prevention-section {
+  padding: 0 1.25rem 2.5rem;
+}
+
+.prevention-content {
+  background: #ecfdf5;
+  border-radius: 16px;
+  padding: 1.5rem 1.3rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.prevention-text h2 {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+}
+
+.prevention-text p {
+  margin: 0 0 0.7rem;
+  color: #374151;
+}
+
+.prevention-text ul {
+  margin: 0 0 0.9rem 1.1rem;
+  padding: 0;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.prevention-image img {
+  width: 100%;
+  border-radius: 16px;
+  display: block;
+}
+
+/* ================= Waarom Zorgstart ================= */
+
+.trust-section {
+  padding: 0 1.25rem 2.5rem;
+}
+
+.trust-section h2 {
+  margin-bottom: 1rem;
+}
+
+.trust-items {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.trust-item {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+}
+
+.trust-item h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1rem;
+}
+
+.trust-item p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 0.9rem;
+}
+
+/* ================= Footer ================= */
+
+footer {
+  padding: 1.5rem 1.25rem 2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* ================= Toast ================= */
+
+.toast {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  min-width: 220px;
+  max-width: 320px;
+  padding: 0.75rem 0.9rem;
+  background: #111827;
+  color: #ffffff;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 60;
+}
+
+.toast.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.toast-icon {
+  font-size: 1.1rem;
+}
+
+/* ================= Responsive ================= */
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .prevention-content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .trust-items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .hero {
+    padding-top: 1.75rem;
+  }
+
+  .action-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .trust-items {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
