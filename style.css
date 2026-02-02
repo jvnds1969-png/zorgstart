@@ -207,13 +207,13 @@ button{font:inherit;border:none;background:none;cursor:pointer}
 .hero-content h1{
   font-size:2.35rem;
   margin-bottom:1rem;
-     color: #ffffff;
+     color: #ffffff !important;
   letter-spacing:-0.02em;
 }
 
 .hero-content p{
   margin:0;
-  color:#ffffff;
+  color:#ffffff !important;
   max-width:56ch;
   font-size:1.02rem;
 }
@@ -574,7 +574,7 @@ footer{
   height: 36px;
   border-radius: 999px;
   background: #2563eb;
-  color: #ffffff;
+  color: #ffffff !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -633,7 +633,7 @@ footer{
 
 .btn-primary {
   background: #2563eb;
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .btn-primary:hover {
@@ -642,7 +642,7 @@ footer{
 
 .btn-secondary {
   background: #111827;
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .btn-secondary:hover {
@@ -947,7 +947,7 @@ footer {
   max-width: 320px;
   padding: 0.75rem 0.9rem;
   background: #111827;
-  color: #ffffff;
+  color: #ffffff !important;
   border-radius: 999px;
   display: flex;
   align-items: center;
