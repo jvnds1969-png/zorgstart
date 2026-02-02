@@ -1,64 +1,570 @@
-/* ================= Basis & reset ================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* =========================
+   Zorgstart — Unified Theme (brand = pink/red)
+   Compat: ondersteunt ook je oude class-namen
+   ========================= */
+
+:root{
+  --brand:#ff385c;
+  --brand-dark:#e61e4d;
+  --brand-soft:#fff1f3;
+
+  --bg:#f8fafc;
+  --surface:#ffffff;
+  --surface-2:#f1f5f9;
+  --text:#0f172a;
+  --muted:#64748b;
+  --muted-2:#94a3b8;
+  --border:#e2e8f0;
+
+  --success:#10b981;
+  --success-dark:#059669;
+  --danger:#dc2626;
+
+  --shadow:0 1px 3px rgba(0,0,0,0.10);
+  --shadow-strong:0 10px 40px rgba(0,0,0,0.12);
+
+  --r-sm:10px;
+  --r-md:12px;
+  --r-lg:16px;
+
+  --focus:0 0 0 3px rgba(255,56,92,0.15);
+}
+
+/* ================= Base & reset ================= */
 
 *,
 *::before,
-*::after {
-  box-sizing: border-box;
+*::after{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
+html{scroll-behavior:smooth}
+
+body{
+  font-family:'Inter', system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
 }
 
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #111827;
-  background: #f3f4f6;
-  line-height: 1.5;
-}
-
-/* Alle hoofdblokken centreren en max-breedte geven */
+/* Je oude max-width regel, maar iets netter */
 body > nav,
 body > header,
 body > section,
-body > footer {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 1.25rem;
+body > footer{
+  max-width:1120px;
+  margin:0 auto;
+  padding:0 1.5rem;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+a{color:inherit;text-decoration:none}
+button{font:inherit;border:none;background:none;cursor:pointer}
+
+/* ================= Navbar =================
+   (oude .navbar + nieuwe vibe)
+   ================= */
+
+.navbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:1rem 1.25rem;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:50;
+  box-shadow:0 1px 0 rgba(15,23,42,0.04);
 }
 
-button {
-  font: inherit;
-  border: none;
-  background: none;
-  cursor: pointer;
+.logo{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
 }
 
-/* ================= Navbar ================= */
-
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 1.25rem;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  position: sticky;
-  top: 0;
-  z-index: 50;
+/* oude .logo-icon (was blauw) -> brand */
+.logo-icon{
+  width:36px;
+  height:36px;
+  border-radius:10px;
+  background:var(--brand);
+  color:#fff;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  font-size:.95rem;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
+.logo-textblock{
+  display:flex;
+  flex-direction:column;
+  line-height:1.1;
+}
+
+.logo-text{
+  font-weight:800;
+  letter-spacing:-0.02em;
+}
+
+.logo-subtitle{
+  font-size:.8rem;
+  color:var(--muted);
+  font-weight:600;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+  font-size:.92rem;
+}
+
+.nav-link{
+  padding:.35rem .9rem;
+  border-radius:999px;
+  border:1px solid rgba(148,163,184,0.55);
+  color:var(--text);
+  font-weight:700;
+  transition:background .15s ease, border-color .15s ease, transform .15s ease;
+}
+
+.nav-link:hover{
+  background:var(--surface-2);
+  border-color:rgba(148,163,184,0.9);
+}
+
+/* ================= Buttons ================= */
+
+.btn{
+  padding:.55rem 1rem;
+  border-radius:999px;
+  font-size:.9rem;
+  font-weight:800;
+  white-space:nowrap;
+  display:inline-flex;
+  align-items:center;
+  gap:.4rem;
+  transition:transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
+}
+
+.btn:active{transform:translateY(0)}
+
+.btn-outline{
+  border:1px solid var(--brand);
+  color:var(--brand);
+  background:transparent;
+}
+.btn-outline:hover{
+  background:var(--brand-soft);
+}
+
+.btn-primary{
+  background:var(--brand);
+  color:#fff;
+  box-shadow:0 10px 22px rgba(255,56,92,0.20);
+}
+.btn-primary:hover{
+  background:var(--brand-dark);
+  box-shadow:0 14px 28px rgba(255,56,92,0.26);
+}
+
+/* je had .btn-secondary: maak hem “donker” zoals hero */
+.btn-secondary{
+  background:#0f172a;
+  color:#fff;
+}
+.btn-secondary:hover{
+  background:#0b1220;
+}
+
+/* ================= Hero =================
+   Donkere hero zoals je Nurseline CSS
+   ================= */
+
+.hero{
+  display:grid;
+  grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);
+  gap:2rem;
+  padding:2.2rem 1.25rem 2.6rem;
+  align-items:center;
+
+  /* nieuwe look */
+  background:linear-gradient(135deg, #0f172a, #1f2937);
+  color:#fff;
+  border-radius:0 0 var(--r-lg) var(--r-lg);
+  box-shadow:var(--shadow);
+  margin-bottom:1.4rem;
+}
+
+.hero-content h1{
+  font-size:2.35rem;
+  margin-bottom:1rem;
+  letter-spacing:-0.02em;
+}
+
+.hero-content p{
+  margin:0;
+  color:#e5e7eb;
+  max-width:56ch;
+  font-size:1.02rem;
+}
+
+.hero-image img{
+  width:100%;
+  height:auto;
+  border-radius:var(--r-lg);
+  object-fit:cover;
+  display:block;
+  border:1px solid rgba(148,163,184,0.55);
+  box-shadow:var(--shadow-strong);
+}
+
+/* ================= Actie-sectie ================= */
+
+.action-section{
+  padding:1rem 1.25rem 2.7rem;
+}
+
+.action-section h2{
+  font-size:1.6rem;
+  margin-bottom:1.25rem;
+  letter-spacing:-0.01em;
+}
+
+.action-cards{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:1.25rem;
+}
+
+.action-card{
+  background:var(--surface);
+  border-radius:var(--r-lg);
+  padding:1.25rem 1.3rem;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  display:flex;
+  flex-direction:column;
+  gap:.7rem;
+}
+
+.action-card .card-icon{
+  font-size:1.4rem;
+}
+
+.action-card h3{
+  margin:.25rem 0 .1rem;
+  font-size:1.1rem;
+}
+
+.action-card p{
+  margin:0;
+  color:var(--muted);
+  font-size:.95rem;
+}
+
+.action-card small{
+  font-size:.82rem;
+  color:var(--muted-2);
+}
+
+/* Support card accent (was blauw links) -> brand */
+.action-card-support{
+  border-left:4px solid var(--brand);
+}
+
+/* Support contact */
+.support-contact{
+  display:flex;
+  align-items:baseline;
+  gap:.5rem;
+  margin-top:.4rem;
+  margin-bottom:.4rem;
+}
+
+.phone-link{font-weight:800}
+.availability{font-size:.85rem;color:var(--muted-2)}
+
+/* ================= Upload / dropzone ================= */
+
+.upload-area{
+  margin-top:.5rem;
+  border:2px dashed rgba(148,163,184,0.9);
+  border-radius:var(--r-md);
+  padding:1.05rem 1rem;
+  text-align:center;
+  background:linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  transition:border-color .2s ease, background-color .2s ease, transform .15s ease;
+}
+
+.upload-area:hover{
+  border-color:var(--brand);
+  background:var(--brand-soft);
+  transform:translateY(-1px);
+}
+
+.upload-icon{
+  font-size:1.4rem;
+  display:block;
+  margin-bottom:.25rem;
+}
+
+.upload-text{
+  margin:0;
+  font-size:.9rem;
+  color:var(--muted);
+}
+
+.upload-extra{margin-top:.6rem}
+
+/* File-info pill */
+.file-info{
+  margin-top:.6rem;
+  padding:.5rem .75rem;
+  border-radius:999px;
+  background:var(--surface-2);
+  border:1px solid var(--border);
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  font-size:.85rem;
+}
+
+.file-name{font-weight:700}
+.file-size{color:var(--muted-2)}
+.btn-remove{
+  background:transparent;
+  color:var(--muted);
+  font-size:.95rem;
+  padding:0 .2rem;
+}
+.btn-remove:hover{color:var(--danger)}
+
+/* ================= Tooltip ================= */
+
+.tooltip{
+  position:relative;
+  cursor:help;
+  display:inline-block;
+}
+
+/* ballon */
+.tooltip::after{
+  content:attr(data-tooltip);
+  position:absolute;
+  bottom:125%;
+  left:50%;
+  transform:translateX(-50%) translateY(6px);
+  width:280px;
+  background:#111827;
+  color:#fff;
+  padding:.75rem .9rem;
+  border-radius:10px;
+  font-size:.85rem;
+  line-height:1.45;
+  text-align:left;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .18s ease, transform .18s ease;
+  z-index:10;
+  box-shadow:var(--shadow-strong);
+}
+
+/* pijltje */
+.tooltip::before{
+  content:"";
+  position:absolute;
+  bottom:115%;
+  left:50%;
+  transform:translateX(-50%);
+  border-width:7px;
+  border-style:solid;
+  border-color:#111827 transparent transparent transparent;
+  opacity:0;
+  transition:opacity .18s ease;
+}
+
+.tooltip:hover::after,
+.tooltip:hover::before{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+/* ================= Preventie-sectie ================= */
+
+.prevention-section{
+  padding:0 1.25rem 2.7rem;
+}
+
+.prevention-content{
+  background:linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
+  border-radius:var(--r-lg);
+  border:1px solid #bbf7d0;
+  padding:1.5rem 1.3rem;
+  display:grid;
+  grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);
+  gap:1.5rem;
+  align-items:center;
+}
+
+.prevention-text h2{
+  margin-top:0;
+  margin-bottom:.8rem;
+  letter-spacing:-0.01em;
+}
+
+.prevention-text p{
+  margin:0 0 .7rem;
+  color:#166534;
+  font-weight:600;
+}
+
+.prevention-text ul{
+  margin:0 0 .9rem 1.1rem;
+  padding:0;
+  font-size:.95rem;
+  color:#166534;
+}
+
+.prevention-image img{
+  width:100%;
+  border-radius:var(--r-lg);
+  display:block;
+  border:1px solid rgba(22,101,52,0.18);
+}
+
+/* ================= Waarom Zorgstart ================= */
+
+.trust-section{
+  padding:0 1.25rem 2.7rem;
+}
+
+.trust-section h2{
+  margin-bottom:1rem;
+  font-size:1.6rem;
+}
+
+.trust-items{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:1rem;
+}
+
+.trust-item{
+  background:var(--surface);
+  border-radius:var(--r-md);
+  padding:1rem;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+}
+
+.trust-item h3{
+  margin:0 0 .35rem;
+  font-size:1rem;
+}
+
+.trust-item p{
+  margin:0;
+  color:var(--muted);
+  font-size:.92rem;
+}
+
+/* ================= Footer ================= */
+
+footer{
+  padding:1.5rem 1.25rem 2rem;
+  text-align:center;
+  font-size:.9rem;
+  color:var(--muted-2);
+  background:var(--surface-2);
+  border-top:1px solid var(--border);
+}
+
+/* ================= Toast ================= */
+
+.toast{
+  position:fixed;
+  right:1.25rem;
+  bottom:1.25rem;
+  min-width:220px;
+  max-width:340px;
+  padding:.75rem .95rem;
+  background:#0f172a;
+  color:#fff;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  gap:.55rem;
+  font-size:.9rem;
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(10px);
+  transition:opacity .2s ease, transform .2s ease;
+  z-index:60;
+  box-shadow:var(--shadow-strong);
+  border:1px solid rgba(148,163,184,0.45);
+}
+
+.toast.show{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0);
+}
+
+.toast-icon{font-size:1.1rem}
+
+/* ================= Responsive ================= */
+
+@media (max-width: 900px){
+  .hero{
+    grid-template-columns:minmax(0,1fr);
+    padding:1.8rem 1.1rem 2.1rem;
+  }
+
+  .prevention-content{
+    grid-template-columns:minmax(0,1fr);
+  }
+
+  .trust-items{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px){
+  .navbar{
+    flex-wrap:wrap;
+    gap:.75rem;
+    padding:.9rem 1rem;
+  }
+
+  .nav-links{
+    flex-wrap:wrap;
+    justify-content:flex-end;
+  }
+
+  .hero{
+    padding-top:1.6rem;
+  }
+
+  .hero-content h1{
+    font-size:2.05rem;
+  }
+
+  .action-cards{
+    grid-template-columns:minmax(0,1fr);
+  }
+
+  .trust-items{
+    grid-template-columns:minmax(0,1fr);
+  }
+}
 }
 
 .logo-icon {
