@@ -193,12 +193,11 @@ button{font:inherit;border:none;background:none;cursor:pointer}
   display:grid;
   grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);
   gap:2rem;
-  padding:2.2rem 1.25rem 2.6rem;
-  align-items:center;
+  padding:1rem 1.25rem 1rem;  align-items:center;
 
   /* nieuwe look */
-  background:linear-gradient(135deg, #0f172a, #1f2937);
-  color:#fff;
+    background:linear-gradient(135deg, rgba(255,255,255,0.9), rgba(232,244,244,0.95));
+  color:#1a1a1a;
   border-radius:0 0 var(--r-lg) var(--r-lg);
   box-shadow:var(--shadow);
   margin-bottom:1.4rem;
@@ -207,8 +206,7 @@ button{font:inherit;border:none;background:none;cursor:pointer}
 .hero-content h1{
   font-size:2.35rem;
   margin-bottom:1rem;
-     color: #ffffff !important;
-  letter-spacing:-0.02em;
+    color: #0f172a !important;  letter-spacing:-0.02em;
 }
 
 .hero-content p{
