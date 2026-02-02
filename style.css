@@ -1005,5 +1005,19 @@ footer {
 
   .trust-items {
     grid-template-columns: minmax(0, 1fr);
+
+     /* ================= Hero Full-Width Override ================= */
+header.hero {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 1.2rem 2rem !important;
+  border-radius: 0 !important;
+}
+
+.hero-image img {
+  max-height: 280px;
+  object-fit: cover;
+}
   }
 }
