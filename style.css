@@ -211,8 +211,7 @@ button{font:inherit;border:none;background:none;cursor:pointer}
 
 .hero-content p{
   margin:0;
-  color:#ffffff !important;
-  max-width:56ch;
+  color:#333333 !important;  max-width:56ch;
   font-size:1.02rem;
 }
 
