@@ -1,16 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 /* =========================
-   Zorgstart — Unified Theme (brand = pink/red)
+   Zorgstart — Unified Theme (brand = teal/groen)
    Compat: ondersteunt ook je oude class-namen
    ========================= */
 
 :root{
-  --brand:#ff385c;
-  --brand-dark:#e61e4d;
-  --brand-soft:#fff1f3;
+  --brand:#257A7A;
+  --brand-dark:#1D5F5F;
+  --brand-soft:#E8F4F4;
+     --accent:#F47C5D;  /* warm koraal voor CTA knoppen */
 
-  --bg:#f8fafc;
+  --bg:#F6F6F4;
   --surface:#ffffff;
   --surface-2:#f1f5f9;
   --text:#0f172a;
@@ -300,7 +301,7 @@ button{font:inherit;border:none;background:none;cursor:pointer}
   border-radius:var(--r-md);
   padding:1.05rem 1rem;
   text-align:center;
-  background:linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  background:linear-gradient(180deg, #ffffff 0%, #F6F6F4 100%);
   transition:border-color .2s ease, background-color .2s ease, transform .15s ease;
 }
 
