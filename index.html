@@ -5,6 +5,83 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Zorgstart — Professionals</title>
     <link rel="stylesheet" href="style.css" />
+
+    <!-- Alleen layout-fixes voor de 4 kaarten + hero.
+         Je mag dit verplaatsen naar style.css als je wil. -->
+    <style>
+      /* ====== HERO: nette 2-koloms layout (stack op mobiel) ====== */
+      .hero {
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 1.5rem 1.25rem;
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 1.25rem;
+        align-items: center;
+      }
+      .hero-content { font-size: 1.05rem; line-height: 1.6; }
+      .hero-content h1 { margin: 0 0 .5rem 0; }
+      .hero-image img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        border-radius: 14px;
+        display: block;
+      }
+
+      /* ====== ACTION CARDS: 4 kaarten mooi in grid ====== */
+      .action-section {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 1.5rem 1.25rem 2rem;
+      }
+      .action-cards {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        align-items: stretch;
+      }
+      .action-card {
+        display: flex;
+        flex-direction: column;
+        gap: .6rem;
+        height: 100%;
+      }
+      .action-card .btn {
+        margin-top: .25rem;
+        align-self: flex-start;
+      }
+      .action-card small {
+        opacity: .8;
+      }
+
+      /* File-info netjes onder de eerste kaart */
+      .file-info {
+        margin-top: .25rem;
+      }
+
+      /* ====== RESPONSIVE ====== */
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .hero-image img {
+          height: 260px;
+        }
+        .action-cards {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      @media (max-width: 640px) {
+        .action-cards {
+          grid-template-columns: 1fr;
+        }
+        .hero-image img {
+          height: 220px;
+        }
+      }
+    </style>
   </head>
 
   <body>
@@ -46,13 +123,21 @@
           aandachtsgebieden en zorgbundels
         </a>
 
-        <a href="https://docs.google.com/document/d/1N1z_8p6vV1Y-mK0FotVXK1WR9Zr27bqY6pBDE0BgDjk/edit?tab=t.0" target="_blank" rel="noopener" class="btn btn-outline">mijn dossier</a>
+        <a
+          href="https://docs.google.com/document/d/1N1z_8p6vV1Y-mK0FotVXK1WR9Zr27bqY6pBDE0BgDjk/edit?tab=t.0"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-outline"
+        >
+          mijn dossier
+        </a>
       </div>
     </nav>
 
     <!-- ================= HERO ================= -->
-    <header class="hero" style="width:100%;max-width:100%;margin:0;padding:1.5rem 2rem;">      <div class="hero-content" style="font-size:1.1rem;line-height:1.6;">
-        <h1 style="">Uw gezondheid, uw regie</h1>
+    <header class="hero">
+      <div class="hero-content">
+        <h1>Uw gezondheid, uw regie</h1>
         <p>
           Of u nu net uit het ziekenhuis komt, te maken heeft met een complexe thuissituatie
           en graag thuis wil blijven wonen, of bewust preventief aan uw gezondheid werkt:
@@ -63,10 +148,12 @@
 
       <div class="hero-image">
         <img
-              src="https://images.pexels.com/photos/1653898/pexels-photo-1653898.jpeg?auto=compress&cs=tinysrgb&w=1200"
-              alt="Gelukkig senior koppel buiten in de natuur"
-            />
-          </div>    </header>
+          src="https://images.pexels.com/photos/1653898/pexels-photo-1653898.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          alt="Gelukkig senior koppel buiten in de natuur"
+          loading="lazy"
+        />
+      </div>
+    </header>
 
     <!-- ================= ACTIONS ================= -->
     <section class="action-section" id="actions">
@@ -74,16 +161,20 @@
 
       <div class="action-cards">
         <!-- ====== Upload kaart ====== -->
-        <div class="action-card">
+        <div class="action-card" id="uploadCard">
           <div class="card-icon">📋</div>
-
           <h3>Helder overzicht voor een vlotte thuiskomst</h3>
 
-        <a href="https://jvnds1969-png.github.io/zorgproces/" target="_blank" rel="noopener" class="btn btn-primary">              Laad een ontslagbrief op
-            </a>
-          </div>
+          <a
+            href="https://jvnds1969-png.github.io/zorgproces/"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-primary"
+          >
+            Laad een ontslagbrief op
+          </a>
 
-          <!-- File info -->
+          <!-- File info (blijft beschikbaar voor je script) -->
           <div class="file-info" id="fileInfo" style="display:none;">
             <span class="file-name" id="fileName"></span>
             <span class="file-size" id="fileSize"></span>
@@ -106,9 +197,14 @@
             Geen ontslagbrief? Beantwoord enkele vragen over uw situatie en krijg advies in een zorgplan
             met een voorstel van lokale zorg- of dienstverleners.
           </p>
-<a href="https://chat.bingli.eu/#/consent" target="_blank" rel="noopener" class="btn btn-primary">
-          Start de vragenlijst
-        </a>
+          <a
+            href="https://chat.bingli.eu/#/consent"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-primary"
+          >
+            Start de vragenlijst
+          </a>
           <small>± 5 minuten</small>
         </div>
 
@@ -125,27 +221,19 @@
             target="_blank"
             rel="noopener"
             class="btn btn-primary"
-            style="display:inline-block;text-align:center;"
           >
             Ga naar zorgverleners ↗
           </a>
         </div>
 
-            <!-- ====== Preventie kaart ====== -->
-            <div class="action-card">
-                      <div class="card-icon">🌱</div>
-                      <h3>Preventie & zelfzorg</h3>
-                      <p>
-                                  Niet ziek, maar wel bewust met uw gezondheid bezig? Krijg gepersonaliseerd advies.
-                                </p>
-                      <a href="#prevention" class="btn btn-primary">
-                                  Begin met preventie
-                                </a>
-                    </div>
-
-          </div> <!-- end action-cards -->
-
-        
+        <!-- ====== Preventie kaart ====== -->
+        <div class="action-card">
+          <div class="card-icon">🌱</div>
+          <h3>Preventie & zelfzorg</h3>
+          <p>Niet ziek, maar wel bewust met uw gezondheid bezig? Krijg gepersonaliseerd advies.</p>
+          <a href="#prevention" class="btn btn-primary">Begin met preventie</a>
+        </div>
+      </div>
     </section>
 
     <!-- ================= PREVENTION ================= -->
@@ -162,10 +250,11 @@
             <li>Tips voor beweging, voeding en mentale gezondheid</li>
             <li>Vroegtijdige signalering van mogelijke problemen</li>
           </ul>
-<input type="file" id="preventionFileInput" accept=".pdf,.doc,.docx" hidden />
-        <label for="preventionFileInput" class="btn btn-primary" style="cursor:pointer;">
-          Begin met preventie
-        </label>
+
+          <input type="file" id="preventionFileInput" accept=".pdf,.doc,.docx" hidden />
+          <label for="preventionFileInput" class="btn btn-primary" style="cursor:pointer;">
+            Begin met preventie
+          </label>
         </div>
 
         <div class="prevention-image">
