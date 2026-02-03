@@ -1043,3 +1043,18 @@ header.hero {
   border-radius: 12px;
 }
 }
+/* =========================================
+   ACTION CARDS – buttons mooi uitgelijnd
+   ========================================= */
+
+.action-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Duw de blauwe knop altijd naar onder */
+.action-card .btn {
+  margin-top: auto;
+  align-self: flex-start; /* links uitgelijnd */
+}
